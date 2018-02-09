@@ -1,0 +1,65 @@
+﻿@model TestMVC.Models.CreditInfo
+
+@{
+    ViewBag.Title = "Кредитный калькулятор";
+}
+
+<div class="col-md-4 col-sm-6 col-xs-12">
+    @using (Html.BeginForm("Index", "Calculator", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Sum)
+            @Html.TextBoxFor(m => m.Sum, new { @class = "form-control", type = "number", placeholder="В рублях", required = "required" })
+
+            <div class="error">@Html.ValidationMessageFor(m => m.Sum)</div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Period)
+            @Html.TextBoxFor(m => m.Period, new { @class = "form-control",type = "number", placeholder = "В месяцах", required = "required" })
+
+            <div class="error">@Html.ValidationMessageFor(m => m.Period)</div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.RateYear)
+            @Html.TextBoxFor(m => m.RateYear,
+                              new
+                              {
+                                  type = "range",
+                                  @class = "form-control",
+                                  step = "1",
+                                  min = "1",
+                                  max = "100",
+                                  @value = "50",
+                                  onchange = "ratevalue.value=value",
+                                  required = "required"
+                              })
+            <output id="ratevalue" class="inline">50</output>
+            <span> %</span>
+
+            <div class="error">@Html.ValidationMessageFor(m => m.RateYear)</div>
+        </div>
+
+        <div class="days_step">
+            @Html.CheckBoxFor(m => m.DayStep)
+            @Html.LabelFor(m => m.DayStep)
+        </div>
+
+        <div class="step_payment_wrap" style="display: none;">
+            <small>Платить через каждые</small>
+            <div class="step_payment">
+                <div>@Html.ValidationMessageFor(m => m.StepPayment)</div>
+
+                @Html.TextBoxFor(m => m.StepPayment, new { @Value= 15, @class = "form-control", type = "number", placeholder = "В днях", required = "required" })
+            </div>
+        </div>
+
+        <div class="btn_wrap">
+            <button type="submit" class="btn btn-primary btn-large btn-submit">Рассчитать</button>
+            <a href="#" class="btn btn-success btn-large btn-reset">Сбросить</a>
+        </div>
+    }
+</div>

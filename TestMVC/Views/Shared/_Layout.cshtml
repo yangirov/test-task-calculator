@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <meta name="theme-color" content="#00963C">
+    <meta name="msapplication-navbutton-color" content="#00963C">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#00963C">
+
+    <style>
+        body {
+            opacity: 0;
+            transition: opacity .3s ease;
+            overflow-x: hidden;
+        }
+
+        html {
+            background-color: #fff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="~/Content/css/main.min.css">
+    <script src="~/Content/js/scripts.min.js"></script>
+    <script src="~/Content/js/common.js"></script>
+</head>
+
+<body>
+    <main>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <h1>@ViewBag.Title</h1>
+                </div>
+
+                @RenderBody()
+
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>

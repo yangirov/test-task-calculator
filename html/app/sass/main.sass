@@ -1,0 +1,90 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	opacity: 1
+
+.btn_wrap
+	margin-top: 20px
+
+.inline
+	display: inline
+
+output
+	font-size: 18px
+	font-weight: bold
+
+label
+	user-select: none
+	span
+		color: #333
+		font-weight: normal
+		font-size: 14px
+
+small
+	display: block
+
+.container
+	margin-bottom: 40px
+
+.step_payment_wrap
+	display: none
+
+.item
+	span
+		display: block
+		font-size: 22px
+
+.result-table
+	tr
+		th, td
+			&:first-child
+				width: 13%
+			&:nth-child(2)
+				width: 12%
+			&:nth-child(3)
+				width: 25%
+
+@import "media"

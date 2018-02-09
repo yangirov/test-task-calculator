@@ -1,0 +1,56 @@
+﻿@model IEnumerable<TestMVC.Models.Item>
+
+@{
+    ViewBag.Title = "График платежей";
+}
+
+<div class="col-sm-12">
+    <table class="result-table table table-hover">
+        <thead>
+            <tr>
+                <th>Номер платежа</th>
+                <th>Дата платежа</th>
+                <th>Размер платежа по телу</th>
+                <th>Размер платежа по %</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SumBody)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SumPercent)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="item">
+                Итого
+                <span>@ViewBag.Total руб.</span>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="item">
+                Переплаты по кредиту
+                <span>@ViewBag.Overs руб.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn_wrap">
+        @Html.ActionLink("Назад", "Index", "Calculator", null, new { @class = "btn btn-primary btn-large" })
+    </div>
+</div>
